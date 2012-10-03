@@ -87,13 +87,10 @@ QStringList EnumFieldDescriptorContainer::getValues()
     return result;
 }
 
-EnumValueDescriptorProto * EnumFieldDescriptorContainer::buildMsg()
+/*EnumValueDescriptorProto * EnumFieldDescriptorContainer::buildMsg()
 {
-    EnumValueDescriptorProto * result;
-    result->set_name(m_field->name());
 
-    return result;
-}
+}*/
 
 QWidget * EnumFieldDescriptorContainer::getParent()
 {

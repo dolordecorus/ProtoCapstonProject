@@ -49,7 +49,7 @@ class EnumFieldDescriptorContainer : public FieldDescriptorContainer
         EnumFieldDescriptorContainer(google::protobuf::FieldDescriptor * field);
         ~EnumFieldDescriptorContainer();
         QStringList getValues();
-        google::protobuf::EnumValueDescriptorProto * buildMsg();
+//        google::protobuf::EnumValueDescriptorProto * buildMsg();
 
         //Inherited functions
         virtual void setValue( std::string object);
