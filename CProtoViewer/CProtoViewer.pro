@@ -9,11 +9,10 @@ TARGET = CProtoViewer
 TEMPLATE = app
 
 SOURCES += main.cpp \
-        ProtoViewer.cpp \
-    model/descriptors/EnumFieldDescriptorContainer.cpp
+        ProtoViewer.cpp
 
 HEADERS  += ProtoViewer.h \
     model/descriptors/FieldDescriptorContainer.h \
-    model/descriptors/EnumFieldDescriptorContainer.h
+    model/descriptors/ProtoMessage.h
 
 FORMS    += ProtoViewer.ui
