@@ -1,3 +1,6 @@
+#ifndef FIELDDESCRIPTORCONTAINER_H
+#define FIELDDESCRIPTORCONTAINER_H
+
 #include <QWidget>
 
 using namespace std;

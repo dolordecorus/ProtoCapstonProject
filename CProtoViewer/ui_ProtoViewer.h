@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ProtoViewer.ui'
 **
-** Created: Sun Oct 14 22:12:57 2012
+** Created: Mon Oct 15 19:44:01 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
