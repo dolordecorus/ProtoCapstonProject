@@ -17,12 +17,12 @@ class NumberFieldDescriptorContainer : public FieldDescriptorContainer<class Obj
         QTextEdit * m_textField;
 
     public:
-        NumberFieldDescriptorContainer(google::protobuf::FieldDescriptor field):FieldDescriptorContainer<Object>(field){}
+        NumberFieldDescriptorContainer(google::protobuf::FieldDescriptor * field):FieldDescriptorContainer<Object>(field){}
 
        virtual QWidget * getWidget(QWidget * parent = 0);
        virtual QWidget * getParent();
-       virtual Object getValue();
-       virtual void setValue(Object value);
+       virtual Object * getValue();
+       virtual void setValue(Object * value);
        virtual QString toString();
        //virtual buildMsg();
 };
