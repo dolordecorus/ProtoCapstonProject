@@ -18,6 +18,12 @@ class NumberFieldDescriptorContainer : public FieldDescriptorContainer<class Obj
 
     public:
         NumberFieldDescriptorContainer(google::protobuf::FieldDescriptor * field):FieldDescriptorContainer<Object>(field){}
+        ~NumberFieldDescriptorContainer()
+        {
+            delete m_field;
+            delete &m_value;
+            delete &m_defaultValue;
+        }
 
        virtual QWidget * getWidget(QWidget * parent = 0);
        virtual QWidget * getParent();

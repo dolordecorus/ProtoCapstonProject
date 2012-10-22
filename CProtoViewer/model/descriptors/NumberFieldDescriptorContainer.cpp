@@ -7,7 +7,7 @@ using namespace protobuf;
 
 QWidget * NumberFieldDescriptorContainer::getWidget(QWidget * parent)
 {
-    std::stringstream ss;
+    stringstream ss;
     if(m_textField == NULL)
     {
         m_textField = new QTextEdit(parent);
@@ -61,7 +61,64 @@ QWidget * NumberFieldDescriptorContainer::getParent()
 
 Object * NumberFieldDescriptorContainer::getValue()
 {
-    return this->m_value;
+    stringstream ss;
+    if( m_value != NULL)
+    {
+        if (m_type == FieldDescriptor::CPPTYPE_DOUBLE)
+        {
+            ss << (double)(long) m_value;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_FLOAT)
+        {
+            ss << (float)(int) m_value;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_INT32)
+        {
+            ss << (int) m_value;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_INT64)
+        {
+            ss << (long )m_value ;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_UINT32)
+        {
+            ss << (unsigned int )m_value;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_UINT64)
+        {
+            ss << (unsigned long) m_value ;
+        }
+        return (Object *) ss.str().c_str();
+    }
+    else if (m_defaultValue != NULL)
+    {
+        if (m_type == FieldDescriptor::CPPTYPE_DOUBLE)
+        {
+            ss << (double)(long) m_defaultValue;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_FLOAT)
+        {
+            ss << (float)(int) m_defaultValue;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_INT32)
+        {
+            ss << (int) m_defaultValue;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_INT64)
+        {
+            ss << (long) m_defaultValue;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_UINT32)
+        {
+            ss << (unsigned int) m_defaultValue;
+        }
+        else if (m_type == FieldDescriptor::CPPTYPE_UINT64)
+        {
+            ss << (unsigned long) m_defaultValue;
+        }
+        return (Object *) ss.str().c_str();
+    }
+    return (Object *) "";
 }
 
 void NumberFieldDescriptorContainer::setValue(Object * value)
