@@ -6,6 +6,7 @@
 #include <QString>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/dynamic_message.h>
+#include <google/protobuf/message.h>
 #include "FieldDescriptorContainer.h"
 
 //Forward Declarations
@@ -30,7 +31,7 @@ class BooleanFieldDescriptorContainer : public FieldDescriptorContainer<class Ob
         virtual Object * getValue();
         virtual void setValue(Object * value);
         virtual QString toString();
-        void buildMsg(google::protobuf::DynamicMessageFactory * dynMsg);
+        virtual bool buildMsg(google::protobuf::Message * msg);
 };
 
 #endif // BOOLEANFIELDDESCRIPTORCONTAINER_H

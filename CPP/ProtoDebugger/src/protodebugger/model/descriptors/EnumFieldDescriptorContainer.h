@@ -31,7 +31,7 @@ class EnumFieldDescriptorContainer : public FieldDescriptorContainer<class Objec
         virtual Object * getValue();
         virtual void setValue(Object * value);
         virtual QString toString();
-        //virtual buildMsg();
+        virtual bool buildMsg(google::protobuf::Message * msg);
 
         QStringList getValues();
 };

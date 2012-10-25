@@ -104,3 +104,42 @@ QStringList EnumFieldDescriptorContainer::getValues()
     }
     return result;
 }
+
+bool EnumFieldDescriptorContainer::buildMsg(Message *msg)
+{
+    if( m_field->is_optional() && m_comboBox->currentText().compare("") == 0)
+    {
+        return false;
+    }
+    if(m_field->is_repeated())
+    {
+        int index = 0;
+        QStringList check = this->getValues();
+
+        for(int i = 0; i < m_field->enum_type()->value_count(); ++i)
+        {
+            if( m_field->enum_type()->value(i)->name().compare(check.at(i).toStdString()) == 0)
+            {
+                index = i;
+                break;
+            }
+        }
+        msg->GetReflection()->AddEnum(msg, m_field, m_field->enum_type()->value(index));
+    }
+    else
+    {
+        int index = 0;
+        QStringList check = this->getValues();
+
+        for(int i = 0; i < m_field->enum_type()->value_count(); ++i)
+        {
+            if( m_field->enum_type()->value(i)->name().compare(check.at(i).toStdString()) == 0)
+            {
+                index = i;
+                break;
+            }
+        }
+        msg->GetReflection()->SetEnum(msg, m_field, m_field->enum_type()->value(index));
+    }
+    return true;
+}

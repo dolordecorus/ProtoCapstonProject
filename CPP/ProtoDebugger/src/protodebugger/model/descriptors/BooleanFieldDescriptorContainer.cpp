@@ -1,4 +1,5 @@
 #include "BooleanFieldDescriptorContainer.h"
+#include <google/protobuf/message.h>
 #include <sstream>
 
 using namespace std;
@@ -64,7 +65,16 @@ QString BooleanFieldDescriptorContainer::toString()
     return QString(str.c_str());
 }
 
-void BooleanFieldDescriptorContainer::buildMsg(DynamicMessageFactory *dynMsg)
+//Note: Using it passes in a mutable message
+bool BooleanFieldDescriptorContainer::buildMsg(Message * msg)
 {
-
+    if(m_field->is_repeated())
+    {
+        msg->GetReflection()->AddBool(msg, m_field, m_check->isChecked());
+    }
+    else
+    {
+        msg->GetReflection()->SetBool(msg, m_field, m_check->isChecked());
+    }
+    return true;
 }

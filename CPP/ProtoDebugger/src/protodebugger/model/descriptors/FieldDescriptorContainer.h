@@ -25,7 +25,7 @@ class FieldDescriptorContainer
         virtual Object * getValue() = 0;
         virtual void setValue(Object * value) = 0;
         virtual QString toString() = 0;
-        //virtual buildMsg(Message::Message) = 0;
+        virtual bool buildMsg(google::protobuf::Message * msg) = 0;
 
         FieldDescriptorContainer(google::protobuf::FieldDescriptor * field)
         {

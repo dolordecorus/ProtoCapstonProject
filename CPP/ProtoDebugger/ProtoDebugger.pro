@@ -20,11 +20,15 @@ TEMPLATE = app
 SOURCES += main.cpp \
     src/protodebugger/model/descriptors/NumberFieldDescriptorContainer.cpp \
     src/protodebugger/model/descriptors/EnumFieldDescriptorContainer.cpp \
-    src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.cpp
+    src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.cpp \
+    src/protodebugger/model/descriptors/TextFieldDescriptorContainer.cpp \
+    src/protodebugger/util/ParseProtoMessage.cpp
 
 HEADERS += \
     src/protodebugger/model/ProtoMessage.h \
     src/protodebugger/model/descriptors/NumberFieldDescriptorContainer.h \
     src/protodebugger/model/descriptors/FieldDescriptorContainer.h \
     src/protodebugger/model/descriptors/EnumFieldDescriptorContainer.h \
-    src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.h
+    src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.h \
+    src/protodebugger/model/descriptors/TextFieldDescriptorContainer.h \
+    src/protodebugger/util/ParseProtoMessage.h
