@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     src/protodebugger/model/descriptors/EnumFieldDescriptorContainer.cpp \
     src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.cpp \
     src/protodebugger/model/descriptors/TextFieldDescriptorContainer.cpp \
-    src/protodebugger/util/ParseProtoMessage.cpp
+    src/protodebugger/util/ParseProtoMessage.cpp \
+    src/protodebugger/model/descriptors/MessageFieldDescriptorContainer.cpp
 
 HEADERS += \
     src/protodebugger/model/ProtoMessage.h \
@@ -31,4 +32,5 @@ HEADERS += \
     src/protodebugger/model/descriptors/EnumFieldDescriptorContainer.h \
     src/protodebugger/model/descriptors/BooleanFieldDescriptorContainer.h \
     src/protodebugger/model/descriptors/TextFieldDescriptorContainer.h \
-    src/protodebugger/util/ParseProtoMessage.h
+    src/protodebugger/util/ParseProtoMessage.h \
+    src/protodebugger/model/descriptors/MessageFieldDescriptorContainer.h

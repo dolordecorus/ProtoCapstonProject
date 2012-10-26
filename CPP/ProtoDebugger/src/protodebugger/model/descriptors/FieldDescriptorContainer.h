@@ -12,7 +12,7 @@ class FieldDescriptorContainer
 {
     protected:
         bool m_subfield;
-        FieldDescriptorContainer * parent;
+        FieldDescriptorContainer * m_parent;
         int m_type;
         Object * m_value;
         Object * m_defaultValue;
@@ -123,7 +123,7 @@ class FieldDescriptorContainer
         {
             if(m_subfield)
             {
-             return parent;
+             return m_parent;
             }
             return NULL;
         }
