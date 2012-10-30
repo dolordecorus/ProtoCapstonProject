@@ -57,16 +57,16 @@
          <command
                commandId="protodebugger.commands.Add"
                id="protodebugger.views.ProtoViewer.Toolbar.Add"
-               label="Add Field"
+               label="Add Repeated Field"
                style="push"
-               tooltip="Adds a field to the message">
+               tooltip="Adds a repeated field to the message">
          </command>
          <command
                commandId="protodebugger.commands.Remove"
                id="protodebugger.views.ProtoViewer.Toolbar.Remove"
-               label="Remove Field"
+               label="Remove Added Field"
                style="push"
-               tooltip="Removes a field from the message">
+               tooltip="Removes an added field from the message">
          </command>
       </menuContribution>
       <menuContribution

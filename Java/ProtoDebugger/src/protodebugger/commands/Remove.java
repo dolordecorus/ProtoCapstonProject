@@ -18,21 +18,28 @@ public class Remove extends AbstractHandler
 {
 	private ElementListSelectionDialog dialog;
 	private Map<String, FieldDescriptorContainer> messageList = new LinkedHashMap<String, FieldDescriptorContainer>();
-	{
-		for(FieldDescriptorContainer field :ParseProtoMessage.INSTANCE.getAddedforMsg())
-		{
-				messageList.put(field.toString(), field);
-		}
-	}
-
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException 
 	{
 		if(dialog == null){
-			dialog = new ElementListSelectionDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), new LabelProvider());			
-			dialog.setElements(messageList.keySet().toArray());
-			dialog.setTitle("Select a Message Field to Remove");
-			dialog.setMessage("Select a String (* = any string, ? = any char) :");
+			dialog = new ElementListSelectionDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), new LabelProvider());
+			if(ParseProtoMessage.INSTANCE.getAddedforMsg() == null || ParseProtoMessage.INSTANCE.getAddedforMsg().isEmpty())
+			{
+				dialog.setTitle("No Added Fields to Remove");
+				dialog.setMessage("There are no added fields");
+				
+			}
+			else
+			{
+				for(FieldDescriptorContainer field :ParseProtoMessage.INSTANCE.getAddedforMsg())
+				{
+						messageList.put(field.name, field);
+				}
+				dialog.setElements(messageList.keySet().toArray());
+				dialog.setTitle("Select a Message Field to Remove");
+				dialog.setMessage("Select a String (* = any string, ? = any char) :");
+			}
 		}
 		if (dialog.open() == Window.OK)
 		{

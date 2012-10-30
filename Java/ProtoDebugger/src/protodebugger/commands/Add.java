@@ -19,21 +19,29 @@ public class Add extends AbstractHandler
 {
 	private ElementListSelectionDialog dialog;
 	private Map<String, FieldDescriptorContainer> messageList = new LinkedHashMap<String, FieldDescriptorContainer>();
-	{
-		for(FieldDescriptorContainer field :ParseProtoMessage.INSTANCE.getAddedforMsg())
-		{
-				messageList.put(field.toString(), field);
-		}
-	}
-	
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException 
 	{
 		if(dialog == null){
-			dialog = new ElementListSelectionDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), new LabelProvider());				
-			dialog.setElements(messageList.keySet().toArray());
-			dialog.setTitle("Select a Message Field to Add");
-			dialog.setMessage("Select a String (* = any string, ? = any char) :");
+			dialog = new ElementListSelectionDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), new LabelProvider());	
+			if(ParseProtoMessage.INSTANCE.getRepeatedforMsg() == null || ParseProtoMessage.INSTANCE.getRepeatedforMsg().isEmpty())
+			{
+				dialog.setTitle("No Repeated Fields to Add");
+				dialog.setMessage("This proto does not contain any valid repeated fields");
+				
+			}
+			else
+			{
+				for(FieldDescriptorContainer field :ParseProtoMessage.INSTANCE.getRepeatedforMsg())
+				{
+						messageList.put(field.name, field);
+				}
+				System.out.println("messageList = " + messageList.size());
+				dialog.setElements(messageList.keySet().toArray());
+				dialog.setTitle("Select a Message Field to Add");
+				dialog.setMessage("Select a String (* = any string, ? = any char) :");
+			}
 		}
 		if (dialog.open() == Window.OK)
 		{

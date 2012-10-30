@@ -10,8 +10,9 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.test.*;
+import org.test.AddressBookProtos.AddressBook;
 import org.test.AlienSpeciesProto.Alien;
-import org.test.Simple;
 
 import protodebugger.util.ParseProtoMessage;
 
@@ -24,6 +25,7 @@ public class ProtoSelection extends AbstractHandler {
 	{
 		messageList.put("Simple", Simple.SimpleExample.getDefaultInstance());
 		messageList.put("Alien", Alien.getDefaultInstance());
+		messageList.put("Address", AddressBook.getDefaultInstance() );
 	}
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
