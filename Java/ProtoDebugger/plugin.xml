@@ -54,6 +54,20 @@
                style="push"
                tooltip="Builds the current proto file">
          </command>
+         <command
+               commandId="protodebugger.commands.Add"
+               id="protodebugger.views.ProtoViewer.Toolbar.Add"
+               label="Add Field"
+               style="push"
+               tooltip="Adds a field to the message">
+         </command>
+         <command
+               commandId="protodebugger.commands.Remove"
+               id="protodebugger.views.ProtoViewer.Toolbar.Remove"
+               label="Remove Field"
+               style="push"
+               tooltip="Removes a field from the message">
+         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -81,6 +95,16 @@
             defaultHandler="protodebugger.commands.Build"
             id="protodebugger.commands.Build"
             name="Build">
+      </command>
+      <command
+            defaultHandler="protodebugger.commands.Remove"
+            id="protodebugger.commands.Remove"
+            name="Remove">
+      </command>
+      <command
+            defaultHandler="protodebugger.commands.Add"
+            id="protodebugger.commands.Add"
+            name="Add">
       </command>
    </extension>
 

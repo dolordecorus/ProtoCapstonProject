@@ -189,6 +189,11 @@ public enum ParseProtoMessage {
 			}
 		}
 		
+		public GeneratedMessage getCurrentMsg()
+		{
+			return current;
+		}
+		
 		/*public static void main(String [] args)
 		{
 			ParseProtoMessage.INSTANCE.parse(Simple.SimpleExample.getDefaultInstance());
