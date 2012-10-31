@@ -46,6 +46,8 @@ public class Remove extends AbstractHandler
 			if(messageList.get(dialog.getFirstResult()) != null)
 				ParseProtoMessage.INSTANCE.removeAddedRepeatedField(messageList.get(dialog.getFirstResult()));
 		}
+		messageList.clear();
+		dialog = null;
 		return null;
 	}
 

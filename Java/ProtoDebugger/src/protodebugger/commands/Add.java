@@ -18,7 +18,7 @@ import protodebugger.util.ParseProtoMessage;
 public class Add extends AbstractHandler  
 {
 	private ElementListSelectionDialog dialog;
-	private Map<String, FieldDescriptorContainer> messageList = new LinkedHashMap<String, FieldDescriptorContainer>();
+	private Map<String, FieldDescriptorContainer> messageList = new LinkedHashMap<String, FieldDescriptorContainer>();;
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException 
@@ -33,11 +33,11 @@ public class Add extends AbstractHandler
 			}
 			else
 			{
-				for(FieldDescriptorContainer field :ParseProtoMessage.INSTANCE.getRepeatedforMsg())
+				for(FieldDescriptorContainer field : ParseProtoMessage.INSTANCE.getRepeatedforMsg())
 				{
 						messageList.put(field.name, field);
 				}
-				System.out.println("messageList = " + messageList.size());
+				System.out.println("currentMsg = " + ParseProtoMessage.INSTANCE.getCurrentMsg().toByteString());
 				dialog.setElements(messageList.keySet().toArray());
 				dialog.setTitle("Select a Message Field to Add");
 				dialog.setMessage("Select a String (* = any string, ? = any char) :");
@@ -47,7 +47,9 @@ public class Add extends AbstractHandler
 		{
 			if(messageList.get(dialog.getFirstResult()) != null)
 				ParseProtoMessage.INSTANCE.addRepeatedField(messageList.get(dialog.getFirstResult()));
-		}		
+		}
+		messageList.clear();
+		dialog = null;
 		return null;
 	}
 

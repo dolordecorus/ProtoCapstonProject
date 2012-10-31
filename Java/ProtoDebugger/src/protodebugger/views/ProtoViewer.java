@@ -80,6 +80,7 @@ public class ProtoViewer extends ViewPart implements PropertyChangeListener{
 		item.setControl((Control)field.getWidget(currentBar));
 		item.setHeight(item.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT).y);
 	}
+	
 	public void selectionChanged(GeneratedMessage msg)
 	{
 		for(ExpandItem item : expandBar.getItems())
@@ -174,8 +175,7 @@ public class ProtoViewer extends ViewPart implements PropertyChangeListener{
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) 
 	{
-		if(evt.getPropertyName().equals("PROTO_CHANGE")||
-				evt.getPropertyName().equals("REMOVE_FIELD"))
+		if(evt.getPropertyName().equals("PROTO_CHANGE") || evt.getPropertyName().equals("REMOVE_FIELD"))
 		{
 			GeneratedMessage msg = (GeneratedMessage)evt.getNewValue();
 			selectionChanged(msg);
@@ -183,7 +183,7 @@ public class ProtoViewer extends ViewPart implements PropertyChangeListener{
 		else if(evt.getPropertyName().equals("REPEATED_FIELD"))
 		{
 			FieldDescriptorContainer field = (FieldDescriptorContainer)evt.getOldValue();
-			Composite comp = field.getParent();
+			Composite comp = field.getParent().getParent();
 			if(comp != null)
 			{
 				currentBar = (ExpandBar)comp;
