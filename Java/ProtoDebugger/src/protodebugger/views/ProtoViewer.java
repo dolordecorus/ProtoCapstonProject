@@ -175,10 +175,14 @@ public class ProtoViewer extends ViewPart implements PropertyChangeListener{
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) 
 	{
-		if(evt.getPropertyName().equals("PROTO_CHANGE") || evt.getPropertyName().equals("REMOVE_FIELD"))
+		if(evt.getPropertyName().equals("PROTO_CHANGE"))
 		{
 			GeneratedMessage msg = (GeneratedMessage)evt.getNewValue();
 			selectionChanged(msg);
+		}
+		else if ( evt.getPropertyName().equals("REMOVE_FIELD"))
+		{
+			
 		}
 		else if(evt.getPropertyName().equals("REPEATED_FIELD"))
 		{
