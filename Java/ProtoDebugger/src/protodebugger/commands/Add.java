@@ -37,7 +37,6 @@ public class Add extends AbstractHandler
 				{
 						messageList.put(field.name, field);
 				}
-				System.out.println("currentMsg = " + ParseProtoMessage.INSTANCE.getCurrentMsg().toByteString());
 				dialog.setElements(messageList.keySet().toArray());
 				dialog.setTitle("Select a Message Field to Add");
 				dialog.setMessage("Select a String (* = any string, ? = any char) :");

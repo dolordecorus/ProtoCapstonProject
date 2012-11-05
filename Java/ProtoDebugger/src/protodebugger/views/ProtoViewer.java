@@ -182,7 +182,13 @@ public class ProtoViewer extends ViewPart implements PropertyChangeListener{
 		}
 		else if ( evt.getPropertyName().equals("REMOVE_FIELD"))
 		{
-			
+			for(ExpandItem item : expandBar.getItems())
+			{
+				if(item.getData().equals(evt.getOldValue()))
+				{
+					item.dispose();
+				}
+			}
 		}
 		else if(evt.getPropertyName().equals("REPEATED_FIELD"))
 		{
